@@ -1,79 +1,149 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Find the Treasure</title>
-        <style>
-            p{
-                font-size: 20px;
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
+
+<head>
+    <title>Find the Treasure</title>
+    <style>
+        p {
+            font-size: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color: red;
+        }
+
+        .flex-container>div {
+            /*div children of the flex container*/
+            background-color: #f1f1f1;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 600px) {
             .flex-container {
-                display: flex;  flex-direction:row;
-                background-color: red;
+                flex-direction: column;
+                background-color: green;
             }
-            
-            .flex-container > div {  /*div children of the flex container*/
-                background-color: #f1f1f1; 
-                margin: 10px;  padding: 20px;  font-size: 30px;
-            }
-            
-            /* Responsive layout */
-            @media (max-width: 600px) { 
-                .flex-container{
-                    flex-direction:column;
-                    background-color: green;
-                }
-            }
-            img{
-                width:150px;
-                height:150px;
-            }
-            
-        </style>
-    </head>
-    <body>
-        <h1>Find the treasure by Jake Schellhorn</h1>
+        }
 
-        <p>Click on the locations to search for treasure, beware the traps</p>
-        <p id="locations">Number of locations checked is zero</p>
-        <p id="penalty">Penalty is zero</p>
-        <p>Click here for help</p>
-        <p id="help">Help Report</p>
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
 
-        <div class="flex-container">
-            <div><img src="treasure-location.jpg"></div>   
-            <div><img src="treasure-chest.jpg"></div>  
-            <div><img src="axe-trap.jpg"></div>
-            <div><img src="skull&bones.jpg"></div>
-            <div><img src="treasure-location.jpg"></div> 
-          </div>
-        <div class="flex-container">
-            <div><img src="treasure-chest.jpg"></div>   
-            <div><img src="axe-trap.jpg"></div>  
-            <div><img src="skull&bones.jpg"></div>
-            <div><img src="treasure-location.jpg"></div>
-            <div><img src="treasure-chest.jpg"></div> 
-        </div>
-        <div class="flex-container">
-            <div><img src="axe-trap.jpg"></div>   
-            <div><img src="skull&bones.jpg"></div>  
-            <div><img src="treasure-location.jpg"></div>
-            <div><img src="treasure-chest.jpg"></div>
-            <div><img src="axe-trap.jpg"></div> 
-        </div>
-        <div class="flex-container">
-            <div><img src="skull&bones.jpg"></div>   
-            <div><img src="treasure-location.jpg"></div>  
-            <div><img src="treasure-chest.jpg"></div>
-            <div><img src="axe-trap.jpg"></div>
-            <div><img src="skull&bones.jpg"></div> 
-        </div>
-        <div class="flex-container">
-            <div><img src="treasure-location.jpg"></div>   
-            <div><img src="treasure-chest.jpg"></div>  
-            <div><img src="axe-trap.jpg"></div>
-            <div><img src="skull&bones.jpg"></div>
-            <div><img src="treasure-location.jpg"></div>  
-        </div>
-    </body>
+<body>
+    <h1>Find the treasure by Jake Schellhorn</h1>
+
+    <p>Click on the locations to search for treasure, beware the traps</p>
+    <p id="locations">Number of locations checked is zero</p>
+    <p id="penalty">Penalty is zero</p>
+    <p onclick="help()">Click here for help</p>
+    <p id="help">Help Report</p>
+
+    <div class="flex-container">
+        <div><img src="treasure-location.jpg" id="1x1" onclick="check(0)"></div>
+        <div><img src="treasure-location.jpg" id="1x2" onclick="check(1)"></div>
+        <div><img src="treasure-location.jpg" id="1x3" onclick="check(2)"></div>
+        <div><img src="treasure-location.jpg" id="1x4" onclick="check(3)"></div>
+        <div><img src="treasure-location.jpg" id="1x5" onclick="check(4)"></div>
+    </div>
+    <div class="flex-container">
+        <div><img src="treasure-location.jpg" id="2x1" onclick="check(5)"></div>
+        <div><img src="treasure-location.jpg" id="2x2" onclick="check(6)"></div>
+        <div><img src="treasure-location.jpg" id="2x3" onclick="check(7)"></div>
+        <div><img src="treasure-location.jpg" id="2x4" onclick="check(8)"></div>
+        <div><img src="treasure-location.jpg" id="2x5" onclick="check(9)"></div>
+    </div>
+    <div class="flex-container">
+        <div><img src="treasure-location.jpg" id="3x1" onclick="check(10)"></div>
+        <div><img src="treasure-location.jpg" id="3x2" onclick="check(11)"></div>
+        <div><img src="treasure-location.jpg" id="3x3" onclick="check(12)"></div>
+        <div><img src="treasure-location.jpg" id="3x4" onclick="check(13)"></div>
+        <div><img src="treasure-location.jpg" id="3x5" onclick="check(14)"></div>
+    </div>
+    <div class="flex-container">
+        <div><img src="treasure-location.jpg" id="4x1" onclick="check(15)"></div>
+        <div><img src="treasure-location.jpg" id="4x2" onclick="check(16)"></div>
+        <div><img src="treasure-location.jpg" id="4x3" onclick="check(17)"></div>
+        <div><img src="treasure-location.jpg" id="4x4" onclick="check(18)"></div>
+        <div><img src="treasure-location.jpg" id="4x5" onclick="check(19)"></div>
+    </div>
+    <div class="flex-container">
+        <div><img src="treasure-location.jpg" id="5x1" onclick="check(20)"></div>
+        <div><img src="treasure-location.jpg" id="5x2" onclick="check(21)"></div>
+        <div><img src="treasure-location.jpg" id="5x3" onclick="check(22)"></div>
+        <div><img src="treasure-location.jpg" id="5x4" onclick="check(23)"></div>
+        <div><img src="treasure-location.jpg" id="5x5" onclick="check(24)"></div>
+    </div>
+</body>
+
+<script>
+    ids = ["1x1", "1x2", "1x3", "1x4", "1x5", "2x1", "2x2", "2x3", "2x4", "2x5", "3x1", "3x2", "3x3", "3x4", "3x5", "4x1", "4x2", "4x3", "4x4", "4x5", "5x1", "5x2", "5x3", "5x4", "5x5"]
+    checkCount = 0
+    penalty = 0
+    lastCheck = 0
+    treasureLocation = 5
+    traplocation = 18
+    gameOver = false
+
+    function check(position) {
+        if (gameOver) {
+            return;
+        }
+        else {
+            if (position == treasureLocation) {
+                document.getElementById("2x1").src = "treasure-chest.jpg"
+                gameOver = true
+                penalty = penalty - 3
+            }
+            else if (position == traplocation) {
+                document.getElementById("4x4").src = "axe-trap.jpg"
+                gameOver = true
+                penalty += 4
+
+            }
+            else {
+                document.getElementById(ids[position]).src = "skull&bones.jpg"
+            }
+            checkCount += 1
+            penalty += 1
+            document.getElementById("locations").innerHTML = "Number of locations checked is " + checkCount
+            document.getElementById("penalty").innerHTML = "Penalty is " + penalty
+            lastCheck = position
+        }
+    }
+
+        function help() {
+
+            treasureRow = treasureLocation / 5
+            treasureCol = treasureLocation % 5
+            lastCheckRow = lastCheck / 5
+            lastCheckCol = lastCheck % 5
+
+            penalty += 2
+
+            if ((treasureRow - lastCheckRow < 2 & treasureRow - lastCheckRow > -2) || (treasureCol - lastCheckCol < 2 & treasureCol - lastCheckCol > -2)) {
+                document.getElementById("help").innerHTML = "Can Smell It"
+                penalty += 2
+            }
+            else if (treasureRow - lastCheckRow + treasureCol - lastCheckCol == 2) {
+                document.getElementById("help").innerHTML = "Close Matie"
+                penalty += 2
+            }
+            else {
+                document.getElementById("help").innerHTML = "Step Faster"
+                penalty += 2
+            }
+
+            document.getElementById("penalty").innerHTML = "Penalty is " + penalty
+        }
+</script>
+
 </html>
