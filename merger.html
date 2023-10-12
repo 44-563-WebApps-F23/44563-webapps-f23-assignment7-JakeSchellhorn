@@ -37,6 +37,8 @@
 		</p>
 		<input type="text" id="text">
 		<button onclick="makeNewDiv()">Add end</button>
+		<button onclick="addFront()">Add front</button>
+		<button onclick="remove()">Remove</button>
 	
 	
 </body>
@@ -52,7 +54,25 @@
 		/* add it to the container */
 		let container = document.getElementById('target')
 		container.appendChild(element)
-		
+	}
+
+	function remove(){
+		let mergerItems = document.getElementsByClassName("merger")
+		let mergerLength = mergerItems.length
+		if(mergerLength>0){
+			mergerItems[Math.floor(mergerLength/2)].remove()
+		}
+	}
+
+	function addFront(){
+		let element = document.createElement("div")
+		let text = document.getElementById("text").value
+		element.innerHTML = text
+		element.style.color = "orange"
+		element.class= "merger"
+
+		let container = document.getElementById('target')
+		container.insertBefore(element, container.children[0])
 	}
 </script>
 </html>	
